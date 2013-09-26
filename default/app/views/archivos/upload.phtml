@@ -1,0 +1,27 @@
+<?php print Tag::js("forms/jquery.form.min") ?>
+<?php print Tag::js("forms/forms.custom") ?>
+
+<?php View::content() ?>
+
+<?php print Form::openMultipart('archivos/datos', "id='form'") ?>
+    Ingrese un archivo .zip ó .rar:
+    <?php echo Form::file('archivo') ?>
+    <?php echo Form::hidden('oculto') //para saber si se envió el form ?>
+    <?php echo Form::submit('subir') ?>
+<?php echo Form::close() ?>
+
+<div id="results">
+	<div id="res"></div>
+	<table id="imagenes" class="table table-bordered table-hover">
+		<caption>Cuadro de Imagenes</caption>
+		<thead>
+			<tr>
+				<th>Imagen</th>
+				<th>Titulo</th>
+				<th>Borrar</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>

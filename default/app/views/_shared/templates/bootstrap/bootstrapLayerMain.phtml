@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><?php Print $siteTitle ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+  	<?php Tag::css('bootstrap/bootstrap') ?>
+  	<?php //Tag::css('TableTools') ?>
+  	<?php //Tag::css('colorbox/colorbox'); ?>
+  	<!-- if navbar show this -->
+
+		<style type="text/css">
+			body { padding-top: 60px; padding-bottom: 40px; }
+		</style>
+
+  	<?php Tag::css('bootstrap//bootstrap-responsive') ?>
+  	<?php echo Html::includeCss() ?>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- Area de js ------------------------ -->
+	
+	<script>
+	<!--
+		/* area de configuración de PATH  */
+		var url = '<?php Print PUBLIC_PATH ?>'
+	-->
+	</script>
+	
+  	<?php print Tag::js("jquery/jquery.min") ?>
+	<?php echo Tag::js('jquery/jquery.kumbiaphp')?>
+
+	<!-- Area de js ------------------------ -->
+
+	<?php View::partial('bootstrap/headIcons') ?>
+</head>
+
+<body>
+	<?php View::partial('bootstrap/navbarMenu', null, array('menu' => $menu)) ?>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+
+			<div class="span3">
+				<?php View::partial('bootstrap/sidebar') ?>
+			</div><!--/span-->
+
+			<div class="span9">
+
+				<?php //View::partial('bootstrap/heroUnit') ?>
+				
+				<div class="row-fluid">
+					<div class="span12">
+					<?php if(isset($title)): ?>
+						<h1><?php Print $title ?></h1>
+						<hr>
+					<?php endif; ?>
+						<div id="page_holder">
+							<?php View::content() ?>
+						</div>
+						
+					</div><!--/span-->
+				</div><!--/row-->
+
+			</div><!--/span-->
+
+		</div><!--/row-->
+	  	<hr>
+		<footer>
+			<p>&copy; kumbiaphp 2013</p
+			<?php  ?>	
+				<?php view::partial('kumbia/footer') ?>
+			<?php  ?>
+		</footer>
+	</div><!--/.fluid-container-->
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+ 		<?php print Tag::js('bootstrap/bootstrap') ?>
+
+</body>
+</html>

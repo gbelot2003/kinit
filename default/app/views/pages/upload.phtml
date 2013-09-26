@@ -1,0 +1,8 @@
+<?php View::content() ?>
+
+<?php echo Form::openMultipart('archivos/datos') ?>
+    Ingrese un archivo .zip ó .rar:
+    <?php echo Form::file('archivo') ?>
+    <?php echo Form::hidden('oculto') //para saber si se envió el form ?>
+    <?php echo Form::submit('subir') ?>
+<?php echo Form::close() ?>

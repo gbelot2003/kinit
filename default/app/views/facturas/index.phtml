@@ -1,0 +1,61 @@
+<!-- vista Facturas index.phtml -->
+<style type="text/css">
+<!--
+
+.blue {color:blue;}
+.red {color:red;}
+.id, .cantidad {width: 5.5em;}
+.id input, .cantidad input {width: 5em;}
+.nombre {width: 25em;}
+.id, .nombre, .precio, .cantidad, .subtotal, #total {text-align: right;}
+
+-->
+</style>
+<?php View::content() ?>
+
+<?php Print Tag::js("sumtr/jquery.sumtr"); ?>
+<?php Print Tag::js("facturas/facturas"); ?>
+
+
+<?php Print Form::open("facturas/callback") ?>
+<table class="table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Nombre</th>
+			<th>precio</th>
+			<th><span class="blue">cantidad</span></th>
+			<th><span class="red">Sub-Total</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="row-1">
+			<td class="id"><?php Print Form::text('productos.id') ?></td>
+			<td class="nombre"></td>
+			<td class="precio"></td>
+			<td class="cantidad"><?php Print Form::text('productos.cantidad', NULL, "1") ?></td>
+			<td class="subtotal"></td>
+		</tr>
+		<tr class="row-2">
+			<td class="id"><?php Print Form::text('productos.id') ?></td>
+			<td class="nombre"></td>
+			<td class="precio"></td>
+			<td class="cantidad"><?php Print Form::text('productos.cantidad', NULL, "1") ?></td>
+			<td class="subtotal"></td>
+		</tr>
+		<tr class="row-3">
+			<td class="id"><?php Print Form::text('productos.id') ?></td>
+			<td class="nombre"></td>
+			<td class="precio"></td>
+			<td class="cantidad"><?php Print Form::text('productos.cantidad', NULL, "1") ?></td>
+			<td class="subtotal"></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr class="summary">
+			<td colspan="4">Total</td>
+			<td id="total"></td>
+		</tr>
+	</tfoot>
+</table>
+<?php Print Form::close() ?>

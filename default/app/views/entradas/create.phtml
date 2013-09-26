@@ -1,0 +1,47 @@
+<style type="text/css">
+	#editorTexto{margin:1.5em 0 1.5em 2.564102564102564%;}
+</style>
+
+<?php View::content() ?>
+
+<?php Print Form::open() ?>
+  
+<div class="row-fluid">
+  <div class="span12">
+  	
+  	<div class="span8"><!-- Columna de datos de noticia -->
+
+  		<div class="span12"></div>
+  		<div class="span12">
+    		<label>Titulo de Entrada</label>
+     		<?php Print Form::text("entradas.titulo", "class='span12'") ?>
+  			<?php Print Form::hidden("entradas.user_id", NULL, $userid) ?>
+  		</div>
+
+   		<div class="span12">
+    		<label>Sección</label>
+     		<?php Print Form::dbSelect("entradas.seccion_id") ?>
+  		</div>
+
+  		<div id="editorTexto" class="span12">
+    		<label></label>
+     		<?php Print Form::textarea("entradas.texto", "class='span12'") ?>
+  		</div>
+
+    </div><!-- Columna de datos de noticia -->
+  	
+  	<div class="span4"><!-- Columna de attachment -->
+
+  	</div><!-- Columna de attachment -->
+  </div>
+</div>
+
+<hr />
+
+<div class="row-fluid">
+	<?php Print Form::submit('Crear', "class='btn btn-primary'") ?>
+    <!--<a class="btn btn-primary" onclick="$('.modal-body > form').submit();">Guardar Cambios</a>-->
+</div>
+
+<?php Print Form::close() ?>
+<?php View::partial("tinymce/tinymce_simple") ?>

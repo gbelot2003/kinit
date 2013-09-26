@@ -1,0 +1,36 @@
+<?php View::partial('bootstrap/modal') ?>
+<div id="info">
+	<?php View::content(); ?>
+</div>
+<div class="well">
+    <?php echo Html::link("usuarios/crear","<i class='icon-plus-sign'></i> Crear registro", "class='btn btn-primary add'  data-toggle='modal' data-target='#myModal'")?>
+</div>
+<table class="table table-hover table-bordered">
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>usuario</th>
+			<th>Correo Electronico</th>
+			<th>Rol administrativo</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($listUsuarios->items as $row): ?>
+		<tr>
+			<td><?php Print $row->id ?></td>
+			<td><?php Print $row->usuario ?></td>
+			<td><?php Print $row->email ?></td>
+			<td><?php Print $row->rol ?></td>
+			<td>
+				<?php echo Html::linkAction("editar/$row->id","<i class='icon-edit'></i> Editar", "class='edit' data-toggle='modal' data-target='#myModal'")?> 
+				<?php echo Html::linkAction("borrar/$row->id",'<i class="icon-trash"></i>Borrar', 'onclick="return confirm(\'¿Está seguro?\')"')?>
+
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+
+<?php View::partial('paginator/classic', false, array('page' => $listUsuarios ,'url' => Router::get('controller_path').'/index')); ?>

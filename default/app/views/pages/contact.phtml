@@ -1,0 +1,44 @@
+<?php View::content() ?>
+
+<?php Print Form::open("contact", "POST", "class='form-horizontal'") ?>
+	<fieldset>
+		<legend>Correo de contacto</legend>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">Asunto</label>
+			<div class="controls">
+				<?php Print Form::text("titulo", "class='input-xlarge'") ?>
+				<p class="help-block"></p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">Nombre</label>
+			<div class="controls">
+				<?php Print Form::text("nombre", "class='input-xlarge'") ?>
+				<p class="help-block"></p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">Correo de Contacto</label>
+			<div class="controls">
+				<?php Print Form::text("email", "class='input-xlarge'") ?>
+				<p class="help-block"></p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="textarea">Mensaje</label>
+			<div class="controls">
+				<?php Print Form::textarea('cuerpo', "class='input-xlarge' rows='3'") ?>
+			</div>
+		</div>
+		
+		<div class="form-actions">
+			<hr />
+			<?php Print Form::submit('Enviar Mensaje', "class='btn btn-primary'") ?>
+			<button class="btn">Cancel</button>
+		</div>
+	</fieldset>
+<?php Form::close() ?>

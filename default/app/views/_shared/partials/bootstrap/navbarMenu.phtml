@@ -1,0 +1,40 @@
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid"> 
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<?php Print Html::link("", "Kinit 0.1", "class='brand'") ?>
+				<div class="nav-collapse">
+					<ul class="nav" rol="navigation">
+						<li class="<?php Print $menu['inicio'] ?>"><?php print Html::link("", 'Inicio') ?></li>
+						<li class="<?php Print $menu['upload'] ?>"><?php print Html::link("upload", 'Subida') ?></li>
+						<li class="<?php Print $menu['facturas'] ?>"><?php print Html::link("facturas", 'Facturas') ?></li>
+						<li class="<?php Print $menu['contact'] ?>"><?php print Html::link("contact", 'Contacto') ?></li>
+
+						<?php if(Auth::is_valid()): ?>
+							<li class="dropdown <?php Print $menu['config'] ?>">
+								<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Configuración <b class="caret"></b></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+									<li role="presentation"><?php Print Html::link('entradas', "Entradas de Articulos", "role='menuitem' tabindex='-1'") ?></li>
+			                        <li role="presentation"><?php Print Html::link('usuarios', "usuarios", "role='menuitem' tabindex='-1'") ?></li>
+			                        <li><?php Print Html::link("logout", 'Salir de Sistema') ?></li>
+                      			</ul>
+							</li>
+						<?php endif ?>
+					</ul>
+
+					<!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+					 <?php if(Auth::is_valid()): ?>
+					 	<?php $user = Auth::get('usuario'); ?>
+					 		<p class="navbar-text pull-right">Logeado como : <strong><?php print $user ?></strong></a></p>
+					 	<?php else:?>
+							<p class="navbar-text pull-right"><?php Print Html::link("login", 'Iniciar Sesión') ?></p>
+						<?php endif ?>
+				
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>

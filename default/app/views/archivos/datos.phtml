@@ -1,0 +1,10 @@
+<?	//view::content();
+	$json = new Services_JSON();
+	$output = $json->encode($img);
+	print($output);
+/*
+<tr>
+	<td><?php print Html::img("upload/".$img->titulo, NULL, "width='200' class='img-polaroid img-rounded'") ?></td>
+	<td><?php print $img->titulo ?></td>
+	<td><?php print Html::link("archivos/delDatos/". $img->id, "Borrar", "class='btn borrar'") ?></td>	
+</tr>*/

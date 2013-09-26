@@ -1,0 +1,33 @@
+<?php View::partial('bootstrap/modal') ?>
+<div id="info">
+	<?php View::content(); ?>
+</div>
+<div class="well">
+    <?php echo Html::link("entradas/create","<i class='icon-plus-sign'></i> Crear Nueva Entrada de Noticias", "class='btn btn-primary'")?>
+</div>
+
+<table class="table table-hover table-bordered">
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>No.</th>
+			<th>Titulo</th>
+			<th>Fecha</th>
+			<th>Sección</th>
+			<th>Estado</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($rows as $row): ?>
+		<tr>
+			<td><?php print $row->nid ?></td>
+			<td><?php Print Html::link("entradas/edit/" . $row->nid, $row->titulo) ?></td>
+			<td><?php print $row->fecha_envio ?></td>
+			<td><?php print $row->seccion ?></td>
+			<td><?php print $row->estado ?></td>
+			<td>vacias</td>
+		</tr>
+	<?php endforeach ?>
+	</tbody>
+</table>
